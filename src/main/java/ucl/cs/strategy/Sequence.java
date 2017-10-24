@@ -2,19 +2,14 @@ package ucl.cs.strategy;
 
 import java.util.Iterator;
 
-public class TriangleNumberSequence implements Iterable<Integer>{
-    public int term(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException("Not defined for indices < 0");
-        }
-        if (i < 1) {
-            return 1;
-        }
-        return ((i+1) * (i + 2))/2;
-    }
+public class Sequence implements Iterable<Integer>{
+    Term term;
 
+    public Sequence(Term t){
+        term = t;
+    }
     public Iterator<Integer> iterator() {
-        return new TriangleNumberSequence.SequenceIterator();
+        return new SequenceIterator();
     }
 
     private class SequenceIterator implements Iterator<Integer> {
@@ -28,7 +23,7 @@ public class TriangleNumberSequence implements Iterable<Integer>{
 
         @Override
         public Integer next() {
-            return term(index++);
+            return term.term(index++);
         }
 
         @Override

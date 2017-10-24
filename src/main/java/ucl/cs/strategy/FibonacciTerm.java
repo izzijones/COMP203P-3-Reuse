@@ -2,7 +2,7 @@ package ucl.cs.strategy;
 
 import java.util.Iterator;
 
-public class FibonacciSequence implements Iterable<Integer> {
+public class FibonacciTerm extends Term{
 
   public int term(int i) {
     if (i < 0) {
